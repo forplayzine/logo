@@ -1,7 +1,5 @@
-import { hello } from "../src/index";
-
+import { getLogo } from "../src/index";
 test("basic", () => {
-    const actual = hello();
-    const expected = "hello";
-    expect(actual).toBe(expected);
+    const actual = getLogo();
+    expect(actual).toBeDefined();
 });

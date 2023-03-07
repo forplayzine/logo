@@ -4,4 +4,4 @@
  * @packageDocumentation
  */
 
-export { hello } from "./hello";
+export { getLogo } from "./getLogo";
