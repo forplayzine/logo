@@ -1,4 +1,6 @@
-export interface SvgCircle {
+import { SvgAttributeId } from "./SvgAttributeId";
+import { SvgAttributeFill } from "./SvgAttributeFill";
+export interface SvgCircle extends SvgAttributeId, SvgAttributeFill {
     /**
      * The x-axis coordinate of the center of the circle
      */

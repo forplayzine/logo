@@ -1,4 +1,6 @@
-export interface SvgRect {
+import { SvgAttributeId } from "./SvgAttributeId";
+import { SvgAttributeFill } from "./SvgAttributeFill";
+export interface SvgRect extends SvgAttributeId, SvgAttributeFill {
     /**
      * The x position of the top left corner of the rectangle.
      */

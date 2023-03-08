@@ -1,5 +1,7 @@
 import { SvgCircle } from "./SvgCircle";
-
-export function getSvgCircle({ x, y, radius }: SvgCircle): string {
-    return `<circle cx="${x}" cy="${y}" r="${radius}"/>`;
+import { getSvgAttributes } from "./getSvgAttributes";
+export function getSvgCircle(attributes: SvgCircle): string {
+    const { x, y, radius } = attributes;
+    const fa = getSvgAttributes(attributes);
+    return `<circle${fa} cx="${x}" cy="${y}" r="${radius}"/>`;
 }

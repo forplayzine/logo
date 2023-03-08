@@ -43,8 +43,29 @@ export function getLogo(): string {
     // center of circle is
     const pCircleCenterX = pStartX + pAcrossWidth;
     const pCircleCenterY = pStartY + pAcrossHeight / 2;
+    const pCircleRadius = pAcrossHeight / 2;
+    elements.push(getSvgCircle({ x: pCircleCenterX, y: pCircleCenterY, radius: pCircleRadius }));
+
+    // O cutout
+    const pCircleCutoutRadius = pAcrossHeight / 3;
     elements.push(
-        getSvgCircle({ x: pCircleCenterX, y: pCircleCenterY, radius: pAcrossHeight / 2 })
+        getSvgCircle({
+            x: pCircleCenterX,
+            y: pCircleCenterY,
+            radius: pCircleCutoutRadius,
+            fill: "white",
+        })
+    );
+
+    // = cutout
+    elements.push(
+        getSvgRect({
+            x: pStartX + lineWidth,
+            y: pStartY + pCircleRadius - pCircleCutoutRadius,
+            width: pAcrossWidth - lineWidth,
+            height: pCircleCutoutRadius * 2,
+            fill: "white",
+        })
     );
 
     //
