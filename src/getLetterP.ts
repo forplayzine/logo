@@ -97,7 +97,7 @@ export function getLetterP(dimensions: LetterP): string {
     /**
      * distance between the edge of the hole and the edge of the letter
      */
-    const holeBorder = 4;
+    const holeBorder = 11;
 
     const holeR = circleCutoutR - holeBorder;
     const holeH = circleCenterX - x - stemWidth + borderSize;

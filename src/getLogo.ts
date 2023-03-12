@@ -13,26 +13,35 @@ export function getLogo(): string {
     // Filled or outlined letters?
     // outlined letters
 
+    // For F and P
     const stemWidth = 20;
+    const borderSize = 2;
 
     const fStartX = 0;
     const fStartY = 0;
     const fHeight = 100;
     const fWidth = 50;
+    const fArmHeight = 20;
 
-    const pOffset = 20; // lower P y start compare to F y start
-    const pStartY = pOffset;
-    const pStartX = 50;
-    const pHeight = fHeight - pOffset; // still goes to same baseline
+    // P x y from F x y
+    const pOffsetY = 23;
+    const pOffsetX = fWidth - stemWidth; // aligns with Arm F
+
+    const pStartY = fStartY + pOffsetY;
+    const pStartX = fStartX + pOffsetX;
+    const pHeight = fHeight - pOffsetY; // still goes to same baseline
+    const pArmHeight = fArmHeight * 2;
+
+    const fLowerArmOffset = pStartY - fStartY + pArmHeight - fArmHeight; // align with P lower
 
     const letterP = getLetterP({
         x: pStartX,
         y: pStartY,
         height: pHeight,
-        width: 50,
-        armHeight: 30,
+        width: 45,
+        armHeight: pArmHeight,
         stemWidth,
-        borderSize: 2,
+        borderSize,
     });
 
     const letterF = getLetterF({
@@ -41,6 +50,10 @@ export function getLogo(): string {
         height: fHeight,
         width: fWidth,
         stemWidth,
+        borderSize,
+        armHeight: fArmHeight,
+        lowerArmOffset: fLowerArmOffset,
+        lowerArmWidth: 40,
     });
 
     const elements: string[] = [letterP, letterF];
