@@ -1,3 +1,6 @@
 # About
 
-Description of the package.
+Package to generate For Play Zine logo as an SVG
+
+Logo should be only black lines on a transparent background.
+

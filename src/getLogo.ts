@@ -3,6 +3,8 @@ import { getSvg } from "./getSvg";
 //import { getSvgCircle } from "./getSvgCircle";
 import { getLetterP } from "./getLetterP";
 import { getLetterF } from "./getLetterF";
+import { SvgRect } from "./SvgRect";
+import { getSvgRect } from "./getSvgRect";
 /**
  * Example Documentation
  * @returns "hello"
@@ -12,6 +14,14 @@ export function getLogo(): string {
     // Logo is an overlapping F and P
     // Filled or outlined letters?
     // outlined letters
+
+    const width = 100;
+    const height = 100;
+
+    // Background helps with debugging
+    // in production, this should not be included
+    const backgroundSvg: SvgRect = { x: 0, y: 0, width, height, fill: "pink" };
+    const background = getSvgRect(backgroundSvg);
 
     // For F and P
     const stemWidth = 20;
@@ -56,7 +66,7 @@ export function getLogo(): string {
         lowerArmWidth: 40,
     });
 
-    const elements: string[] = [letterP, letterF];
+    const elements: string[] = [background, letterP, letterF];
     const svg = getSvg(elements, { width: 100, height: 100 });
     // the name of the function
     return svg;
